@@ -2,7 +2,7 @@
 
 Request for validation of url parameters
 
-**Generate PDF tables with Javascript**
+**How it works**
 
 Suppose you have this url  [www.bzilee.me/portfolio?post_id=1](https://www.bzilee.me),
 where you should validate this parameter in the manner of [Laravel's formRequest](https://laravel.com/api/5.5/Illuminate/Foundation/Http/FormRequest.html). The problem is that laravel formRequest only handles data from POST requests.
@@ -117,5 +117,20 @@ class PostController extend Controller {
 
 ```
 
-## API
 
+## Contributing
+
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+
+## License
+
+The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Vulnérabilité
+
+Bien vouloir **informer** en cas de doute de sécurité.
+
+## License
+
+MIT - Licence
