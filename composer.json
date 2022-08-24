@@ -15,10 +15,7 @@
     "autoload": {
         "psr-4": {
             "Bzilee\\Abstracts\\": "src"
-        },
-        "files": [
-            "src/helpers.php"
-        ]
+        }
     },
     "minimum-stability": "dev"
 }

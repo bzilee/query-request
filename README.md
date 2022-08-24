@@ -37,7 +37,7 @@ $ composer dump-autoload
 
 namespace App\Http\Requests;
 
-use Bzilee\QueryRequest;
+use Bzilee\Abstracts\QueryRequest;
 
 class RetrievePostRequest extend QueryRequest {
     
@@ -97,7 +97,6 @@ class RetrievePostRequest extend QueryRequest {
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\RetrievePostRequest;
 
 class PostController extend Controller {
@@ -110,9 +109,13 @@ class PostController extend Controller {
     protected function index(RetrievePostRequest $request)
     {
         $data = $request->validated();
+
+        // your logic code here
     }
 
 }
 
 ```
-## Usage
+
+## API
+

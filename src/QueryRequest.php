@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Abstracts\v1\Requests;
+namespace App\Abstracts;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
