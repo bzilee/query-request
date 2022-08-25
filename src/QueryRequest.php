@@ -11,11 +11,13 @@ abstract class QueryRequest
 	private $messages = [];
 	private $errors;
 	private $validated = [];
+	private $query = [];
 
-	abstract protected function authorize();
-	abstract protected function rules();
-	abstract protected function failedValidation();
+	abstract public function authorize();
+	abstract public function rules();
+	abstract public function failedValidation();
 	abstract protected function failedAuthorization();
+	abstract protected function prepareForValidation();
 
 	/**
 	 * Set all this configuration
@@ -75,6 +77,21 @@ abstract class QueryRequest
 	}
 
 	/**
+	 * Set others query to prepare for Validation.
+	 *
+	 * @return void
+	 */
+	protected function merge($queryToMerge)
+	{
+		if (!is_array($queryToMerge)) {
+			throw new \ErrorException(
+				"The merge() function must be an array."
+			);
+		}
+		array_merge($this->query, $queryToMerge);
+	}
+
+	/**
 	 * Set the validation rules.
 	 *
 	 * @return void
@@ -82,6 +99,7 @@ abstract class QueryRequest
 	 */
 	private function setRules()
 	{
+		$this->query = request()->query();
 		$this->rules = $this->rules();
 
 		if (!is_array($this->rules)) {
@@ -90,7 +108,7 @@ abstract class QueryRequest
 			);
 		}
 
-		$validateRequest = Validator::make(request()->query(), $this->rules, $this->messages);
+		$validateRequest = Validator::make($this->query, $this->rules, $this->messages);
 
 		if ($validateRequest->fails()) {
 			$this->errors = $validateRequest->errors();
