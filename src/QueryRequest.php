@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Abstracts;
+namespace Bzilee\Abstracts;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
