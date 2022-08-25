@@ -1,4 +1,4 @@
-# QueryRequest Abstract Class
+# QueryRequest (Like FormRequest in Laravel Framework)
 
 Request for validation of url parameters
 
