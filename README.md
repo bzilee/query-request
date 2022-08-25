@@ -13,6 +13,10 @@ Just create a validation file exactly like the formRequest inheritors.
 
 And take advantage of laravel's dependency injection to enjoy the same power of formRequest.
 
+## Conditions
+
+The package requires PHP 7.0 or higher. The Laravel package also requires Laravel 5.5 or higher.
+
 ## Installation
 
 Get the package by doing these things:
