@@ -59,7 +59,7 @@ abstract class QueryRequest
 	private function setMessages()
 	{
 		if (method_exists(get_class(), "messages")) {
-			$this->messages = $this->message();
+			$this->messages = $this->messages();
 		}
 	}
 
@@ -87,7 +87,7 @@ abstract class QueryRequest
 				"The merge() function must be an array."
 			);
 		}
-		array_merge($this->query, $queryToMerge);
+		$this->query = array_merge($this->query, $queryToMerge);
 	}
 
 	/**
@@ -99,11 +99,11 @@ abstract class QueryRequest
 	private function setRules()
 	{
 		$this->query = request()->query();
-
+		
 		if (method_exists(get_class(), "prepareForValidation")) {
 			$this->prepareForValidation();
 		}
-
+			
 		$this->rules = $this->rules();
 
 		if (!is_array($this->rules)) {
@@ -125,5 +125,25 @@ abstract class QueryRequest
 				}
 			}
 		}
+	}
+
+	/**
+	 * Pre Validation Function
+	 *
+	 * @return
+	 */
+	protected function prepareForValidation()
+	{ 
+		//
+	}
+
+	/**
+	 * Custom validator message replacers
+	 *
+	 * @return
+	 */
+	protected function messages()
+	{ 
+		//
 	}
 }
