@@ -17,7 +17,6 @@ abstract class QueryRequest
 	abstract public function rules();
 	abstract public function failedValidation();
 	abstract protected function failedAuthorization();
-	abstract protected function prepareForValidation();
 
 	/**
 	 * Set all this configuration
@@ -100,6 +99,11 @@ abstract class QueryRequest
 	private function setRules()
 	{
 		$this->query = request()->query();
+
+		if (method_exists(get_class(), "prepareForValidation")) {
+			$this->prepareForValidation();
+		}
+
 		$this->rules = $this->rules();
 
 		if (!is_array($this->rules)) {
