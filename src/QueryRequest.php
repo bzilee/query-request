@@ -12,7 +12,7 @@ abstract class QueryRequest
 	private $errors;
 	private $validated = [];
 
-	abstract protected function authorize(): bool;
+	abstract protected function authorize();
 	abstract protected function rules();
 	abstract protected function failedValidation();
 	abstract protected function failedAuthorization();
