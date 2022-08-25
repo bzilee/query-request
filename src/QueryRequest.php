@@ -119,7 +119,7 @@ abstract class QueryRequest
 			$this->failedValidation();
 			return;
 		} else {
-			foreach (request()->query() as $query => $value) {
+			foreach ($this->query as $query => $value) {
 				if (isset($this->rules[$query])) {
 					$this->validated[$query] = $value;
 				}
