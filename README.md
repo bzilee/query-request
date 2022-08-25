@@ -46,17 +46,41 @@ class RetrievePostRequest extend QueryRequest {
      *
      * @return bool
      */
-    protected function authorize()
+    public function authorize()
     {
         return true;
     }
+
+    /**
+	 * Pre Validation Function
+     * 
+     * @return 
+	 */
+	protected function prepareForValidation()
+	{
+        $this->merge([
+            // Another query to merge for before validation
+        ]);
+	}
+
+    /**
+	 * Get the error messages for the defined validation rules.
+	 *
+	 * @return array
+	 */
+	public function messages()
+	{
+		return [
+			"post_id.required" => "The :attribute is required",
+		];
+	}
 
     /**
      * Get the validation rules that apply to the request.
      *
      * @return array
      */
-    protected function rules()
+    public function rules()
     {
         return [
             "post_id" => "required|numeric|exists:posts,id,deleted_at,NULL",
@@ -68,7 +92,7 @@ class RetrievePostRequest extend QueryRequest {
      * 
      * @return ResponseException
      */
-    protected function failedValidation()
+    public function failedValidation()
     {
         // your logic code here
         // example
