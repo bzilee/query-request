@@ -142,8 +142,8 @@ abstract class QueryRequest
 	 *
 	 * @return
 	 */
-	protected function messages()
+	public function messages()
 	{ 
-		//
+		return $this->messages;
 	}
 }
